@@ -21,9 +21,18 @@ include_once __DIR__ ."/partials/hotel.php";
                 Hotels
             </h1>
             <form action="./index.php" method="GET">
-                <input type="checkbox" name="filterParking" id="filterParking">
+                <div>
                 <label for="filterParking" class="form-check-label">Filter by Parking</label>
-                <button type="submit" id="filterParkingButton">
+                    <input type="checkbox" name="filterParking" id="filterParking">
+                    
+                </div>
+                <div>
+                <label for="filterVote" class="form-check-label">Filter by Vote</label>
+                    <input type="number" name="filterVote" id="filterVote">
+                    
+                </div>
+                
+                <button type="submit" id="filterButton">
                     Filter
                 </button>
             </form>
@@ -43,6 +52,9 @@ include_once __DIR__ ."/partials/hotel.php";
                             if($filterParking == 'on' && !$hotel['parking']){
                                 continue;
                             };
+                            if($filterVote != '' && $hotel['vote'] < $filterVote){
+                                continue;
+                            }
                     ?>
                         <tr>
                             <td>

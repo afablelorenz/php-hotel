@@ -41,5 +41,6 @@
     ];
 
 
-    $filterParking = $_GET['filterParking'];    
+    $filterParking = $_GET['filterParking'];
+    $filterVote = $_GET['filterVote'];    
 ?>
