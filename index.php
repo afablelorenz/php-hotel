@@ -20,6 +20,13 @@ include_once __DIR__ ."/partials/hotel.php";
             <h1 class="my-4">
                 Hotels
             </h1>
+            <form action="./index.php" method="GET">
+                <input type="checkbox" name="filterParking" id="filterParking">
+                <label for="filterParking" class="form-check-label">Filter by Parking</label>
+                <button type="submit" id="filterParkingButton">
+                    Filter
+                </button>
+            </form>
             <table class="table table-bordered">
                 <thead>
                     <tr>
@@ -33,6 +40,9 @@ include_once __DIR__ ."/partials/hotel.php";
                 <tbody>
                     <?php
                         foreach($hotels as $hotel){
+                            if($filterParking == 'on' && !$hotel['parking']){
+                                continue;
+                            };
                     ?>
                         <tr>
                             <td>

@@ -40,4 +40,6 @@
 
     ];
 
+
+    $filterParking = $_GET['filterParking'];    
 ?>
